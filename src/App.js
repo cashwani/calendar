@@ -17,10 +17,13 @@ localizer(globalize)
 
 
 // BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment))
-
 const DragAndDropCalendar = withDragAndDrop(
   BigCalendar,
-  { backend: TouchBackend({ enableMouseEvents: true }) }
+  {
+    backend: TouchBackend({
+      enableMouseEvents: !('ontouchstart' in window)
+    })
+  }
 )
 // const DragAndDropCalendar = DragDropContext(TouchBackend({ enableMouseEvents: true }))(BigCalendar)
 //------------------------------------------------------------
